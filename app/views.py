@@ -60,7 +60,6 @@ def pages(request):
 
 
 @login_required(login_url="/login/")
-@allowed_users(allowed_roles=['Admin'])
 def customers(request):
     users = User.objects.all().filter(is_staff=False)
     print(users)
