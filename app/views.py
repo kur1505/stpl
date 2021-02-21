@@ -257,7 +257,7 @@ def createPlans(request):
 # --------------------------------------Customer Views----------------------------------------------
 
 @login_required(login_url="/loginCustomer/")
-@allowed_users(allowed_roles=['Customer'])
+# @allowed_users(allowed_roles=['Customer'])
 def customerHome(request):
     cust = request.user
 
