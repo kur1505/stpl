@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>
+        Sadhana Group {% block title %}{% endblock %}
+    </title>
+    <!-- HTML5 Shim and Respond.js IE10 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 10]>
+		<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+		<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+		<![endif]-->
+    <!-- Meta -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <link rel="canonical" href="https://appseed.us/admin-dashboards/django-dashboard-dattaable">
+
+
+    <!-- Favicon icon -->
+    <link rel="icon" href="/static/assets/images/favicon.ico" type="image/x-icon">
+    <!-- fontawesome icon -->
+    <link rel="stylesheet" href="/static/assets/fonts/fontawesome/css/fontawesome-all.min.css">
+    <!-- animation css -->
+    <link rel="stylesheet" href="/static/assets/plugins/animation/css/animate.min.css">
+    <!-- vendor css -->
+    <link rel="stylesheet" href="/static/assets/css/style.css">
+
+    <!-- Specific CSS goes HERE -->
+    {% block stylesheets %}{% endblock stylesheets %}
+</head>
+
+<body>
+
+    <!-- [ Pre-loader ] start -->
+    <div class="loader-bg">
+        <div class="loader-track">
+            <div class="loader-fill"></div>
+        </div>
+    </div>    
+    
+    <!-- Top Bar -->
+    {% include 'includes/navigation.html' %}
+
+    <!-- SideBar -->
+    {% include 'includes/sidebarCustomer.html' %}
+
+    <div class="pcoded-main-container">
+        <div class="pcoded-wrapper">
+
+            {% block content %}
+                <!-- <h4>Hi {{cust}}</h4> -->
+                <div class="container">
+                    <div class="form-control mx-3 my-3 col-md-11">
+                        <h4><b>Basic Details</b></h4>
+                        <hr>
+                        <!-- <div class="row"> -->
+                            <div class=" row mb-3 mx-3">
+                                <div class="col mx-6">
+                                    <label for=""><b>Username: </b></label>
+                                </div>
+                                <div class="col mx-6">
+                                    {{cust.username}}
+                                </div>
+                            </div>
+                            <div class=" row mb-3 mx-3">
+                                <div class="col mx-6">
+                                    <label for=""><b>Name: </b></label>
+                                </div>
+                                <div class="col mx-6">
+                                    {{cust.first_name}}
+                                </div>
+                            </div>
+                            <div class=" row mb-3 mx-3">
+                                <div class="col mx-6">
+                                    <label for=""><b>Email: </b></label>
+                                </div>
+                                <div class="col mx-6">
+                                    {{cust.email}}
+                                </div>
+                            </div>
+                            <div class=" row mb-3 mx-3">
+                                <div class="col mx-6">
+                                    <label for=""><b>Phone: </b></label>
+                                </div>
+                                <div class="col mx-6">
+                                    {{cust.phone}}
+                                </div>
+                            </div>
+                            <div class=" row mb-3 mx-3">
+                                <div class="col mx-6">
+                                    <label for=""><b>Address Line1: </b></label>
+                                </div>
+                                <div class="col mx-6">
+                                    {{cust.addressline1}}
+                                </div>
+                            </div>
+                            <div class=" row mb-3 mx-3">
+                                <div class="col mx-6">
+                                    <label for=""><b>Address Line2: </b></label>
+                                </div>
+                                <div class="col mx-6">
+                                    {{cust.addressline2}}
+                                </div>
+                            </div>
+                            <div class=" row mb-3 mx-3">
+                                <div class="col mx-6">
+                                    <label for=""><b>City: </b></label>
+                                </div>
+                                <div class="col mx-6">
+                                    {{cust.city}}
+                                </div>
+                            </div>
+                            <div class=" row mb-3 mx-3">
+                                <div class="col mx-6">
+                                    <label for=""><b>Pincode: </b></label>
+                                </div>
+                                <div class="col mx-6">
+                                    {{cust.pincode}}
+                                </div>
+                            </div>
+                            
+                        <!-- </div> -->
+                        
+                        <br><h4><b>Account Details</b></h4>
+                        <hr>
+                    <!-- <div class="row"> -->
+                            
+                            {% for user in users %}
+
+                                <div class=" row mb-3 mx-3">
+                                    <div class="col mx-6">
+                                        <label for=""><b>Account Number: </b></label>
+                                    </div>
+                                    <div class="col mx-6">
+                                        {{user.Account_Number}}
+                                    </div>
+                                </div>
+                                <div class=" row mb-3 mx-3">
+                                    <div class="col mx-6">
+                                        <label for=""><b>STB Number: </b></label>
+                                    </div>
+                                    <div class="col mx-6">
+                                        {{user.STB_Number}}
+                                    </div>
+                                </div>                            
+                                <div class=" row mb-3 mx-3">
+                                    <div class="col mx-6">
+                                        <label for=""><b>Area Name: </b></label>
+                                    </div>
+                                    <div class="col mx-6">
+                                        {{user.Area_Name}}
+                                    </div>
+                                </div>
+                                <div class=" row mb-3 mx-3">
+                                    <div class="col mx-6">
+                                        <label for=""><b>Node Number: </b></label>
+                                    </div>
+                                    <div class="col mx-6">
+                                        {{user.NODE_Number}}
+                                    </div>
+                                </div>
+                                <div class=" row mb-3 mx-3">
+                                    <div class="col mx-6">
+                                        <label for=""><b>Bank Account Number: </b></label>
+                                    </div>
+                                    <div class="col mx-6">
+                                        {{user.Bank_Account}}
+                                    </div>
+                                </div>
+                                <div class=" row mb-3 mx-3">
+                                    <div class="col mx-6">
+                                        <label for=""><b>IFSC Code: </b></label>
+                                    </div>
+                                    <div class="col mx-6">
+                                        {{user.IFSC_code}}
+                                    </div>
+                                </div>
+                                
+                            {% endfor %}
+                        <!-- </div> -->
+                    </div>
+                </div>
+            {% endblock content %}
+
+        </div>
+    </div>
+
+    {% include 'includes/scripts.html' %}
+
+    <!-- Specific Page JS goes HERE  -->
+    {% block javascripts %}{% endblock javascripts %}
+
+</body>
+</html>

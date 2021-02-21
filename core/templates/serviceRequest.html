@@ -1,0 +1,77 @@
+{% extends "layouts/base.html" %}
+
+{% block title %} Ui BreadCrumb {% endblock %}
+
+<!-- Specific CSS goes HERE -->
+{% block stylesheets %}{% endblock stylesheets %}
+
+{% block content %}
+
+<div class="pcoded-content">
+    <div class="pcoded-inner-content">
+        <div class="main-body">
+            <div class="page-wrapper">
+                <!-- [ Main Content ] start -->
+                <div class="row">
+                    
+                    <!-- [ basic-table ] start -->
+                    <div class="col-xl-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <h5>Service Requests</h5>
+                                <!-- <a href="{% url 'newCustomer' %}" role="button" style="float: right"><i class="fa fa-plus-circle" aria-hidden="true"></i>Add Customer</a> -->
+                            </div>
+                            <div class="card-block table-border-style">
+                                <div class="table-responsive">
+                                    <table class="text-center table table-bordered" id="tbleCust">
+                                        <thead>
+                                            <tr>
+                                                <th scope="col">SR.No</th>
+                                                <th scope="col">Name</th>
+                                                <th scope="col">STB Number</th>
+                                                <th scope="col">Mobile</th>
+                                                <th scope="col">Email</th>
+                                                <th scope="col">City</th>
+                                                <th scope="col">Operator</th>
+                                                <th scope="col">Message</th>
+                                                <!-- <th scope="col">Allotment by Default (Area Wise)</th> -->
+                                                <th scope="col">Status</th>   
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            {% for SR in sr %}
+                                                <tr>
+                                                    <th scope="col">{{ forloop.counter }}</th>
+                                                    <th scope="col">{{SR.name}}</th>
+                                                    <th scope="col">{{SR.stb}}</th>
+                                                    <th scope="col">{{SR.mobile}}</th>
+                                                    <th scope="col">{{SR.email}}</th>
+                                                    <th scope="col">{{SR.city}}</th>
+                                                    <th scope="col"></th>
+                                                    <th scope="col">{{SR.message_box}}</th>
+                                                    <!-- <th scope="col"></th> -->
+                                                    <th scope="col">{{SR.status}}</th>
+                                                </tr>
+                                            {% endfor %}
+                                        </tbody>
+                                    </table>
+                                    <div>
+                                        
+                                            
+                                        
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- [ basic-table ] end -->
+                    <!-- [ Main Content ] end -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {% endblock content %}
+
+    <!-- Specific Page JS goes HERE  -->
+    {% block javascripts %}{% endblock javascripts %}

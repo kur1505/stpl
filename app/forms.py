@@ -10,20 +10,351 @@ from .models import *
 from authentication.models import *
 from authentication.forms import SignUpForm
 
+
+# --------------------------Customer related----------------------------
 class CustomerForm(UserCreationForm):
+    username = forms.CharField(
+        widget=forms.TextInput(
+            attrs={
+                "placeholder" : "Name",                
+                "class": "form-control"
+            }
+        ))
+
+    password1 = forms.CharField(
+        widget=forms.PasswordInput(
+            attrs={
+                "placeholder" : "Password1",                
+                "class": "form-control"
+            }
+        ))
+
+    password2 = forms.CharField(
+        widget=forms.PasswordInput(
+            attrs={
+                "placeholder" : "Password2",                
+                "class": "form-control"
+            }
+        ))
+    
+    email = forms.CharField(
+        widget=forms.EmailInput(
+            attrs={
+                "placeholder" : "Email",                
+                "class": "form-control"
+            }
+        ))
+    phone = forms.CharField(
+        widget=forms.NumberInput(
+            attrs={
+                "placeholder" : "Phone Number",                
+                "class": "form-control"
+            }
+        ))
+    addressline1 = forms.CharField(
+        widget=forms.TextInput(
+            attrs={
+                "placeholder" : "Address Line1",                
+                "class": "form-control"
+            }
+        ))
+    addressline2 = forms.CharField(
+        widget=forms.TextInput(
+            attrs={
+                "placeholder" : "Address Line2",                
+                "class": "form-control"
+            }
+        ))
+    city = forms.CharField(
+        widget=forms.TextInput(
+            attrs={
+                "placeholder" : "City",                
+                "class": "form-control"
+            }
+        ))
+    pincode = forms.CharField(
+        widget=forms.TextInput(
+            attrs={
+                "placeholder" : "Pincode",                
+                "class": "form-control"
+            }
+        ))
+    # is_staff = forms.BooleanField(initial=False)
     class Meta:
         model = User
-        fields = '__all__'
-        exclude = ['password','user', 'groups', 'user_permissions', 'is_superuser', 'last_login', 'is_staff', 'date_joined']
+        fields = ['username', 'email', 'password1', 'password2', 'phone', 'addressline1', 'addressline2', 'city', 'pincode', 'is_active']
+        exclude = ['user', 'groups', 'user_permissions', 'is_superuser', 'last_login', 'is_staff', 'date_joined']
 
 Customerformset = inlineformset_factory(User, Customer, 
-    fields=('Account_Number', 'STB_Number', 'Area_Name', 'NODE_Number', 'Bank_Account', 'IFSC_code'), extra=1, 
+    fields=('Account_Number', 'STB_Number', 'Area_Name', 'NODE_Number', 'Bank_Account', 'IFSC_code', 'is_active'), extra=1, 
     can_delete=False) 
 
-# class CustomerForm2(UserCreationForm):
-#     class Meta:
-#         model = Customer
-#         fields = '__all__'
-#         exclude = ['password', 'groups', 'user_permissions', 'is_superuser', 'last_login', 'is_staff', 'date_joined']
 
+# --------------------------Operator related-----------------------------------------
+class OperatorForm(UserCreationForm):
+    
+    username = forms.CharField(
+        widget=forms.TextInput(
+            attrs={
+                "placeholder" : "Name",                
+                "class": "form-control",
+            }
+        ))
+
+    
+    email = forms.CharField(
+        widget=forms.EmailInput(
+            attrs={
+                "placeholder" : "Email",                
+                "class": "form-control"
+            }
+        ))
+    phone = forms.CharField(
+        widget=forms.NumberInput(
+            attrs={
+                "placeholder" : "Phone Number",                
+                "class": "form-control"
+            }
+        ))
+    addressline1 = forms.CharField(
+        widget=forms.TextInput(
+            attrs={
+                "placeholder" : "Address Line1",                
+                "class": "form-control"
+            }
+        ))
+    addressline2 = forms.CharField(
+        widget=forms.TextInput(
+            attrs={
+                "placeholder" : "Address Line2",                
+                "class": "form-control"
+            }
+        ))
+    city = forms.CharField(
+        widget=forms.TextInput(
+            attrs={
+                "placeholder" : "City",                
+                "class": "form-control"
+            }
+        ))
+    pincode = forms.CharField(
+        widget=forms.TextInput(
+            attrs={
+                "placeholder" : "Pincode",                
+                "class": "form-control"
+            }
+        ))
+    
+    is_staff = forms.BooleanField(initial=True)
+    is_active = forms.BooleanField(initial=True)
+
+    password1 = forms.CharField(widget=forms.PasswordInput(
+            attrs={
+                "placeholder" : "Password1",                
+                "class": "form-control"
+                
+                
+            }
+        ))
+    password2 = forms.CharField(widget=forms.PasswordInput(
+            attrs={
+                "placeholder" : "Password2",                
+                "class": "form-control"
+                
+                
+            }
+        ))
+    
+
+    class Meta:
+        model = User
+        fields = ['username', 'email', 'password1', 'password2',  'phone', 'addressline1', 'addressline2', 'city', 'pincode', 'is_active', 'is_staff' ]
         
+        
+        # exclude = ['password', 'password1', 'password2','user', 'groups', 'user_permissions', 'is_superuser', 'last_login', 'is_staff', 'date_joined']
+
+Operatorformset = inlineformset_factory(User, Operator, 
+    fields=('Area', 'Pan_Number', 'Bank_Account', 'IFSC_code'), extra=1, 
+    can_delete=False) 
+
+
+
+class CreatePlansForm(ModelForm):
+    Name = forms.CharField(
+        widget=forms.TextInput(
+            attrs={
+                "placeholder" : "Plan Name",                
+                "class": "form-control"
+            }
+        ))
+    
+    Plan_ID = forms.CharField(
+        widget=forms.TextInput(
+            attrs={
+                "placeholder" : "Plan ID",                
+                "class": "form-control"
+            }
+        ))
+    
+    validity = forms.CharField(
+        widget=forms.TextInput(
+            attrs={
+                "placeholder" : "Validity",                
+                "class": "form-control"
+            }
+        ))
+
+    price = forms.CharField(
+        widget=forms.TextInput(
+            attrs={
+                "placeholder" : "Price ₹",                
+                "class": "form-control"
+            }
+        ))
+
+    company_name = forms.CharField(
+        widget=forms.TextInput(
+            attrs={
+                "placeholder" : "Company Name",                
+                "class": "form-control"
+            }
+        ))
+
+    description = forms.CharField(
+        widget=forms.TextInput(
+            attrs={
+                "placeholder" : "Description",                
+                "class": "form-control"
+            }
+        ))
+
+    speed = forms.CharField(
+        widget=forms.TextInput(
+            attrs={
+                "placeholder" : "Speed Line1",                
+                "class": "form-control"
+            }
+        ))
+
+    data_limit = forms.CharField(
+        widget=forms.TextInput(
+            attrs={
+                "placeholder" : "Data Limit",                
+                "class": "form-control"
+            }
+        ))
+
+    class Meta:
+        model = createPlans
+        fields = '__all__'
+
+
+class EmployeeForm(ModelForm):
+    SR_No = forms.CharField(
+        widget=forms.TextInput(
+            attrs={
+                "placeholder" : "Serial Number",                
+                "class": "form-control"
+            }
+        ))
+
+    Name = forms.CharField(
+        widget=forms.TextInput(
+            attrs={
+                "placeholder" : "Name",                
+                "class": "form-control"
+            }
+        ))
+
+    Emp_Number = forms.CharField(
+        widget=forms.TextInput(
+            attrs={
+                "placeholder" : "Employee Number",                
+                "class": "form-control"
+            }
+        ))
+
+    mobile = forms.CharField(
+        widget=forms.TextInput(
+            attrs={
+                "placeholder" : "Mobile",                
+                "class": "form-control"
+            }
+        ))
+
+    email = forms.EmailField(
+        widget=forms.EmailInput(
+            attrs={
+                "placeholder" : "Email Address",                
+                "class": "form-control"
+            }
+        ))
+
+    department = forms.CharField(
+        widget=forms.TextInput(
+            attrs={
+                "placeholder" : "Department",                
+                "class": "form-control"
+            }
+        ))
+
+    DOJ = forms.DateField(
+        widget=forms.TextInput(
+            attrs={
+                "placeholder" : "DD-MM-YYYY",                
+                "class": "form-control datepicker"
+            }
+        ))
+    class Meta:
+        model = Employee
+        fields = '__all__'
+
+class ContactForm(forms.Form):
+    from_email = forms.EmailField(required=True)
+    subject = forms.CharField(required=True)
+    message = forms.CharField(widget=forms.Textarea, required=True)
+
+class stbForm(forms.ModelForm):
+    # serial_number = forms.CharField(
+    #     widget=forms.TextInput(
+    #         attrs={
+    #             "placeholder" : "Serial Number",                
+    #             "class": "form-control"
+    #         }
+    #     ))
+    # issue_date = forms.CharField(
+    #     widget=forms.TextInput(
+    #         attrs={
+    #             "placeholder" : "Issue Date",                
+    #             "class": "form-control"
+    #         }
+    #     ))
+    
+    
+    # DOP = forms.DateField(
+    #     widget=forms.TextInput(
+    #         attrs={
+    #             "placeholder" : "DD-MM-YYYY",                
+    #             "class": "form-control datepicker"
+    #         }
+    #     ))
+    
+    # remark = forms.CharField(
+    #     widget=forms.TextInput(
+    #         attrs={    
+    #             "placeholder" : "Remark",            
+    #             "class": "form-control"
+    #         }
+    #     ))
+    # model_number = forms.CharField(
+    #     widget=forms.TextInput(
+    #         attrs={    
+    #             "placeholder" : "Model Number",            
+    #             "class": "form-control"
+    #         }
+    #     ))
+    class Meta:
+        model = STB
+        fields = '__all__'
+        exclude= ('user_id', 'is_assigned')
+    

@@ -17,7 +17,7 @@ SECRET_KEY = config('SECRET_KEY', default='S#perS3crEt_1122')
 DEBUG = config('DEBUG', default=True, cast=bool)
 
 # load production server from .env
-ALLOWED_HOSTS = ['localhost', '127.0.0.1', config('SERVER', default='127.0.0.1'),'sadhana-group-2.herokuapp.com']
+ALLOWED_HOSTS = ['localhost', '127.0.0.1', config('SERVER', default='127.0.0.1'),'sadhana-group.herokuapp.com']
 
 # Application definition
 
@@ -74,10 +74,18 @@ DATABASES = {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME'  : 'db.sqlite3',
     }
+    # 'default': {
+    #     'ENGINE': 'django.db.backends.postgresql_psycopg2',
+    #     'NAME': 'dfrbidqecj89m5',
+    #     'USER': 'ljqlpxuhyahrtk',
+    #     'PASSWORD': '441b6bcd6df858aa82cccc2da494fa5e9feda603e95cb17667834907fc4a9a3f',
+    #     'HOST': 'ec2-52-22-161-59.compute-1.amazonaws.com',
+    #     'PORT': '5432',
+    # }
 }
 
-DATABASES['default'] = dj_database_url.parse('postgres://hosmgfwzjntrxm:1ad6bb2e759fabbe317a8f36a33e6fa03bb649dd8f7b9a4cc02fa14c49c33a2a@ec2-54-237-143-127.compute-1.amazonaws.com:5432/da8bd7aqcm5hge')
-
+DATABASES['default'] = dj_database_url.parse('postgres://xjwejmqlrvqudt:82544011fbbe5e5cff02636e3cd78612e8b4f318ab7f43cd5056a551a97e5e46@ec2-54-162-119-125.compute-1.amazonaws.com:5432/dbn1srj0tk8tit')
+print(DATABASES)
 # Password validation
 # https://docs.djangoproject.com/en/3.0/ref/settings/#auth-password-validators
 

@@ -1,0 +1,66 @@
+{% extends "layouts/base.html" %}
+
+{% block title %} Ui BreadCrumb {% endblock %}
+
+<!-- Specific CSS goes HERE -->
+{% block stylesheets %}{% endblock stylesheets %}
+
+{% block content %}
+
+<div class="pcoded-content">
+    <div class="pcoded-inner-content">
+        <div class="main-body">
+            <div class="page-wrapper">
+                <!-- [ Main Content ] start -->
+                <div class="row">
+                    
+                    <!-- [ basic-table ] start -->
+                    <div class="col-xl-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <h5>Employees</h5>
+                                <a href="{% url 'addEmployees' %}" role="button" style="float: right"><i class="fa fa-plus-circle" aria-hidden="true"></i>Add Employee</a>
+                            </div>
+                            <div class="card-block table-border-style">
+                                <div class="table-responsive">
+                                    <table class="text-center table table-bordered" id="tbleCust">
+                                        <thead>
+                                            <tr>
+                                                <th scope="col">SR.No</th>
+                                                <th scope="col">Name </th>
+                                                <th scope="col">Emp Number</th>
+                                                <th scope="col">Mobile</th>
+                                                <th scope="col">Email</th>
+                                                <th scope="col">Department</th>
+                                                <th scope="col">DOJ</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            {% for user in users %}
+                                            <tr>
+                                                <td>{{forloop.counter}}</td>
+                                                <td>{{user.Name}}</td>
+                                                <td>{{user.Emp_Number}}</td>
+                                                <td>{{user.mobile}}</td>
+                                                <td>{{user.email}}</td>
+                                                <td>{{user.department}}</td>
+                                                <td>{{user.DOJ}}</td>
+                                        
+                                            {% endfor %}
+                                        </tbody>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- [ basic-table ] end -->
+                    <!-- [ Main Content ] end -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {% endblock content %}
+
+    <!-- Specific Page JS goes HERE  -->
+    {% block javascripts %}{% endblock javascripts %}

@@ -19,11 +19,13 @@
                     </div>
                     <h3 class="mb-4">Login</h3>
 
-                    <span class="mb-0 text-muted">
+                    
                         {% if msg %}
-                            {{ msg | safe }}
+                            <span class="mb-0 text-danger">
+                                 {{ msg | safe }}
                         {% else %}
-                            Add your credentials
+                            <span class="mb-0 text-muted">
+                                Add your credentials
                         {% endif %} 
                     </span>
 
@@ -52,7 +54,7 @@
 
                     </form>
 
-                    <p class="mb-0 text-muted">Don’t have an account? <a href="{% url 'register' %}" >Sign UP</a></p>
+                    {% comment %} <p class="mb-0 text-muted">Don’t have an account? <a href="{% url 'register' %}" >Sign UP</a></p> {% endcomment %}
                     <br />
                     <p class="mb-2 text-muted">
                         &copy; <a target="_blank" href="https://bit.ly/37fF9RT">CodedBy</a> 
