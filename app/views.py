@@ -235,6 +235,13 @@ def updateOperator(request, pk):
     return HttpResponse(html_template.render(context, request))
 
 
+@login_required(login_url="/login/")
+def plans(request):
+    plans = Plans.objects.all()
+    print(plans)
+    context = {'plans':plans}
+    html_template = loader.get_template( 'plans.html' )
+    return HttpResponse(html_template.render(context, request))
 
 @login_required(login_url="/login/")
 def createPlans(request):
@@ -406,8 +413,8 @@ def addserviceRequests(request):
 
 @login_required(login_url="/login/")
 def stb(request):
-    
-    context = {}
+    stb = STB.objects.all()
+    context = {'stb':stb}
     html_template = loader.get_template( 'stb.html' )
     return HttpResponse(html_template.render(context, request))
 
@@ -431,4 +438,58 @@ def addstb(request):
     context={"form": form}
 
     html_template = loader.get_template( 'addstb.html')
+    return HttpResponse(html_template.render(context, request))
+
+@login_required(login_url="/login/")
+def node(request):
+    node = Node.objects.all()
+    context = {'node':node}
+    html_template = loader.get_template( 'node.html' )
+    return HttpResponse(html_template.render(context, request))
+
+@login_required(login_url="/login/")
+def addnode(request):
+    form= nodeForm()
+    try:
+        if request.method == 'POST':
+            form = nodeForm(request.POST)
+            if form.is_valid():
+                form.save()
+                messages.success(request, 'Account is created')
+
+            else:
+                print('Form is not valid')
+    except Exception as e:
+        print(e)
+
+    context={"form": form}
+
+    html_template = loader.get_template( 'addNode.html')
+    return HttpResponse(html_template.render(context, request))
+
+@login_required(login_url="/login/")
+def router(request):
+    router = Router.objects.all()
+    context = {'router':router}
+    html_template = loader.get_template( 'router.html' )
+    return HttpResponse(html_template.render(context, request))
+
+@login_required(login_url="/login/")
+def addRouter(request):
+    form= routerForm()
+    try:
+        if request.method == 'POST':
+            form = routerForm(request.POST)
+            if form.is_valid():
+                form.save()
+                messages.success(request, 'Account is created')
+
+            else:
+                print('Form is not valid')
+    except Exception as e:
+        print(e)
+
+    context={"form": form}
+
+    html_template = loader.get_template( 'addRouter.html')
     return HttpResponse(html_template.render(context, request))

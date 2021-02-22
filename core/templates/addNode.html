@@ -19,7 +19,7 @@
                     {% csrf_token %}
 
                     <div class="form-control">
-                        <h4>Add STB</h4>
+                        <h4>Add Node</h4>
                         <hr><br>
         
                         <div class=" row mb-3 mx-3">
@@ -37,6 +37,15 @@
                             </div>
                             <div class="col mx-6">
                                 {{form.model_number}}
+                            </div>
+                        </div>
+        
+                        <div class=" row mb-3 mx-3">
+                            <div class="col mx-6">
+                                <label for=""><b>Operator Name: </b></label>
+                            </div>
+                            <div class="col mx-6">
+                                {{form.operator_name}}
                             </div>
                         </div>
         
@@ -60,19 +69,19 @@
         
                         <div class=" row mb-3 mx-3">
                             <div class="col mx-6">
-                                <label for=""><b>Type: </b></label>
+                                <label for=""><b>STB Count: </b></label>
                             </div>
                             <div class="col mx-6">
-                                {{form.Type}}
+                                {{form.STB_count}}
                             </div>
                         </div>
-        
+                        
                         <div class=" row mb-3 mx-3">
                             <div class="col mx-6">
-                                <label for=""><b>Box type: </b></label>
+                                <label for=""><b>Area: </b></label>
                             </div>
                             <div class="col mx-6">
-                                {{form.box_type}}
+                                {{form.area}}
                             </div>
                         </div>
         

@@ -1,6 +1,6 @@
 {% extends "layouts/base.html" %}
 
-{% block title %} STB Details {% endblock %}
+{% block title %} Node Details {% endblock %}
 
 <!-- Specific CSS goes HERE -->
 {% block stylesheets %}{% endblock stylesheets %}
@@ -18,8 +18,8 @@
                     <div class="col-xl-12">
                         <div class="card">
                             <div class="card-header">
-                                <h5>STB details</h5>
-                                <a href="{% url 'addstb' %}" role="button" style="float: right"><i class="fa fa-plus-circle" aria-hidden="true"></i>Add STB</a>
+                                <h5>Router details</h5>
+                                <a href="{% url 'addRouter' %}" role="button" style="float: right"><i class="fa fa-plus-circle" aria-hidden="true"></i>Add Router</a>
                             </div>
                             <div class="card-block table-border-style">
                                 <div class="table-responsive">
@@ -42,7 +42,10 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            
+                                    
+                                            <tr>
+                                                <!-- <th scope="col">{{forloop.counter}}</th> -->
+                                            </tr>
                                         </tbody>
 
                                 </div>

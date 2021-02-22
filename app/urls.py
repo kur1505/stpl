@@ -23,6 +23,12 @@ urlpatterns = [
     path('createPlans/', views.createPlans, name="createPlans"),
     path('addstb/', views.addstb, name="addstb"),
     path('save_profile/', views.save_profile, name="save_profile"),
+    path('node/', views.node, name="Node"),
+    path('addnode/', views.addnode, name="addnode"),
+    path('router/', views.router, name="router"),
+    path('addRouter/', views.addRouter, name="addRouter"),
+    path('plans/', views.plans, name="plans"),
+    path('createPlans/', views.createPlans, name="createPlans"),
 
     path('testing/', views.testing, name='testing'),
 

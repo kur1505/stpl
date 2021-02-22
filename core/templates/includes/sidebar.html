@@ -13,7 +13,7 @@
 
             <a class="mobile-menu" id="mobile-collapse" href="javascript:"><span></span></a>
         </div>
-        <div class="navbar-content scroll-div">
+        <div class="navbar-content scroll-div mb-4">
             <ul class="nav pcoded-inner-navbar">
 
                 <li data-username="dashboard Default Ecommerce CRM Analytics Crypto Project"
@@ -21,19 +21,21 @@
                     <a href="/index/" class="nav-link "><span class="pcoded-micon"><i
                                 class="feather icon-home"></i></span><span class="pcoded-mtext">Dashboard</span></a>
                 </li>
-                <li class="nav-item pcoded-menu-caption">
+                {% comment %} <li class="nav-item pcoded-menu-caption">
                     <label>UI Element</label>
-                </li>
+                </li> {% endcomment %}
                 {% comment %} <li
                     data-username="basic components Button Alert Badges breadcrumb Paggination progress Tooltip popovers Carousel Cards Collapse Tabs pills Modal Grid System Typography Extra Shadows Embeds"
                     class="nav-item pcoded-hasmenu">
                     <a href="javascript:" class="nav-link "><span class="pcoded-micon"><i
                                 class="feather icon-box"></i></span><span class="pcoded-mtext">Components</span></a>
                     <ul class="pcoded-submenu"> {% endcomment %}
-                        <div class="nav-item">
+                        <div class="nav-item mb-4">
                             <li class="nav-link"><a href="{% url 'customers' %}" class="">Customers</a></li>
                             <li class="nav-link"><a href="{% url 'operators' %}" class="">Operators</a></li>
                             <li class="nav-link"><a href="{% url 'STB' %}" class="">STB Details
+                                </a></li>
+                            <li class="nav-link"><a href="{% url 'Node' %}" class="">Node Details
                                 </a></li>
                             <li class="nav-link"><a href="{% url 'payments' %}" class="">Payment Details
                                 </a></li>
@@ -41,13 +43,13 @@
                                 </a></li>
                             <li class="nav-link"><a href="{% url 'employees' %}" class="">Employees Details
                                 </a></li>
+                            <li class="nav-link"><a href="{% url 'router' %}" class="">Router Details
+                                </a></li>
                             <li class="nav-link"><a href="#" class="">Inventory Details
                                 </a></li>
                             <li class="nav-link"><a href="#" class="">Feedback Details
                                 </a></li>
-                            <li class="nav-link"><a href="{% url 'createPlans' %}" class="">Package Details
-                                </a></li>
-                            <li class=""><a href="#" class="">Node Details
+                            <li class="nav-link"><a href="{% url 'plans' %}" class="">Package Details
                                 </a></li>
                         </div>
                         {% comment %}

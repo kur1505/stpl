@@ -1,0 +1,51 @@
+{% extends "layouts/base.html" %}
+
+{% block title %} Ui BreadCrumb {% endblock %}
+
+<!-- Specific CSS goes HERE -->
+{% block stylesheets %}{% endblock stylesheets %}
+
+{% block content %}
+
+<div class="pcoded-content">
+    <div class="pcoded-inner-content">
+        <div class="main-body">
+            <div class="page-wrapper">
+                <!-- [ Main Content ] start -->
+                <div class="row">
+
+                    <!-- [ basic-table ] start -->
+                    <div class="col-xl-12">
+                        <div class="card">
+                            <div class="card-header my-3">
+                                <h5 class="px-2 mb-2">Add Plan</h5> <hr>
+                                <form action="" method="post">
+                                    {% csrf_token %}
+                                  <div class="row">
+                                        {% for f in form %}
+                                        <div class="col-md-6 my-2">
+                                            {{f}}
+                                            {{f.errors}}
+                                        </div>
+                                        {% endfor %}  
+                                        <div class="col-md-12 text-center">
+                                            <button type="submit" class="btn btn-primary my-3">Submit</button>
+                                        </div>
+                                    </div>
+                
+                                </form>
+                            </div>
+
+                        </div>
+                    </div>
+                    <!-- [ basic-table ] end -->
+                    <!-- [ Main Content ] end -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {% endblock content %}
+
+    <!-- Specific Page JS goes HERE  -->
+    {% block javascripts %}{% endblock javascripts %}

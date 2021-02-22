@@ -169,9 +169,7 @@ class OperatorForm(UserCreationForm):
     class Meta:
         model = User
         fields = ['username', 'email', 'password1', 'password2',  'phone', 'addressline1', 'addressline2', 'city', 'pincode', 'is_active', 'is_staff' ]
-        
-        
-        # exclude = ['password', 'password1', 'password2','user', 'groups', 'user_permissions', 'is_superuser', 'last_login', 'is_staff', 'date_joined']
+       
 
 Operatorformset = inlineformset_factory(User, Operator, 
     fields=('Area', 'Pan_Number', 'Bank_Account', 'IFSC_code'), extra=1, 
@@ -180,7 +178,7 @@ Operatorformset = inlineformset_factory(User, Operator,
 
 
 class CreatePlansForm(ModelForm):
-    Name = forms.CharField(
+    name = forms.CharField(
         widget=forms.TextInput(
             attrs={
                 "placeholder" : "Plan Name",                
@@ -188,7 +186,7 @@ class CreatePlansForm(ModelForm):
             }
         ))
     
-    Plan_ID = forms.CharField(
+    plan_ID = forms.CharField(
         widget=forms.TextInput(
             attrs={
                 "placeholder" : "Plan ID",                
@@ -231,7 +229,7 @@ class CreatePlansForm(ModelForm):
     speed = forms.CharField(
         widget=forms.TextInput(
             attrs={
-                "placeholder" : "Speed Line1",                
+                "placeholder" : "Speed Line",                
                 "class": "form-control"
             }
         ))
@@ -245,15 +243,15 @@ class CreatePlansForm(ModelForm):
         ))
 
     class Meta:
-        model = createPlans
+        model = Plans
         fields = '__all__'
 
 
 class EmployeeForm(ModelForm):
-    SR_No = forms.CharField(
+    address = forms.CharField(
         widget=forms.TextInput(
             attrs={
-                "placeholder" : "Serial Number",                
+                "placeholder" : "Address",                
                 "class": "form-control"
             }
         ))
@@ -305,6 +303,70 @@ class EmployeeForm(ModelForm):
                 "class": "form-control datepicker"
             }
         ))
+
+    city = forms.CharField(
+        widget=forms.TextInput(
+            attrs={
+                "placeholder" : "City",                
+                "class": "form-control"
+            }
+        ))
+
+    pincode = forms.CharField(
+        widget=forms.TextInput(
+            attrs={
+                "placeholder" : "Pincode",                
+                "class": "form-control"
+            }
+        ))
+
+    company_name = forms.CharField(
+        widget=forms.TextInput(
+            attrs={
+                "placeholder" : "Company Name",                
+                "class": "form-control"
+            }
+        ))
+
+    bank_account_number = forms.CharField(
+        widget=forms.TextInput(
+            attrs={
+                "placeholder" : "Bank Account Number",                
+                "class": "form-control"
+            }
+        ))
+
+    ifsc_code = forms.CharField(
+        widget=forms.TextInput(
+            attrs={
+                "placeholder" : "IFSC COde",                
+                "class": "form-control"
+            }
+        ))
+
+    branch_addresss = forms.CharField(
+        widget=forms.TextInput(
+            attrs={
+                "placeholder" : "Branch Address",                
+                "class": "form-control"
+            }
+        ))
+
+    branch_name = forms.CharField(
+        widget=forms.TextInput(
+            attrs={
+                "placeholder" : "Branch Name",                
+                "class": "form-control"
+            }
+        ))
+
+    permission = forms.CharField(
+        widget=forms.TextInput(
+            attrs={
+                "placeholder" : "Permission",                
+                "class": "form-control"
+            }
+        ))
     class Meta:
         model = Employee
         fields = '__all__'
@@ -315,46 +377,222 @@ class ContactForm(forms.Form):
     message = forms.CharField(widget=forms.Textarea, required=True)
 
 class stbForm(forms.ModelForm):
-    # serial_number = forms.CharField(
-    #     widget=forms.TextInput(
-    #         attrs={
-    #             "placeholder" : "Serial Number",                
-    #             "class": "form-control"
-    #         }
-    #     ))
-    # issue_date = forms.CharField(
-    #     widget=forms.TextInput(
-    #         attrs={
-    #             "placeholder" : "Issue Date",                
-    #             "class": "form-control"
-    #         }
-    #     ))
+    serial_number = forms.CharField(
+        widget=forms.TextInput(
+            attrs={
+                "label" : "Serial Number",
+                "placeholder" : "Serial Number",                
+                "class": "form-control"
+            }
+        ))
+    issue_date = forms.DateField(
+        widget=forms.DateInput(
+            attrs={
+                "label" : "Issue Date",               
+                "class": "form-control datepicker"
+            }
+        ))
     
     
-    # DOP = forms.DateField(
-    #     widget=forms.TextInput(
-    #         attrs={
-    #             "placeholder" : "DD-MM-YYYY",                
-    #             "class": "form-control datepicker"
-    #         }
-    #     ))
+    DOP = forms.DateField(
+        widget=forms.DateInput(
+            attrs={              
+                "class": "form-control datepicker "
+            }
+        ))
     
-    # remark = forms.CharField(
-    #     widget=forms.TextInput(
-    #         attrs={    
-    #             "placeholder" : "Remark",            
-    #             "class": "form-control"
-    #         }
-    #     ))
-    # model_number = forms.CharField(
-    #     widget=forms.TextInput(
-    #         attrs={    
-    #             "placeholder" : "Model Number",            
-    #             "class": "form-control"
-    #         }
-    #     ))
+    remark = forms.CharField(
+        widget=forms.Textarea(
+            attrs={    
+                "placeholder" : "Remark",            
+                "class": "form-control "
+            }
+        ))
+    model_number = forms.CharField(
+        widget=forms.TextInput(
+            attrs={    
+                "placeholder" : "Model Number",            
+                "class": "form-control "
+            }
+        ))  
+    Type = forms.ChoiceField(
+        choices=Type_choices,
+        widget=forms.Select(
+            attrs={    
+                "label" : "Type",            
+                "class": "form-control "
+            }
+        ))
+    box_type = forms.ChoiceField(
+        choices=Box_choices,
+        widget=forms.Select(
+            attrs={    
+                "label" : "Type",            
+                "class": "form-control "
+            }
+        ))
+    status = forms.ChoiceField(
+        choices=Status_choices,
+        widget=forms.Select(
+            attrs={    
+                "label" : "status",            
+                "class": "form-control "
+            }
+        ))
+    
     class Meta:
         model = STB
         fields = '__all__'
         exclude= ('user_id', 'is_assigned')
     
+class nodeForm(forms.ModelForm):
+    serial_number = forms.CharField(
+        widget=forms.TextInput(
+            attrs={
+                "label" : "Serial Number",
+                "placeholder" : "Serial Number",                
+                "class": "form-control"
+            }
+        ))
+    issue_date = forms.DateField(
+        widget=forms.DateInput(
+            attrs={
+                "label" : "Issue Date",               
+                "class": "form-control datepicker"
+            }
+        ))
+    
+    
+    DOP = forms.DateField(
+        widget=forms.DateInput(
+            attrs={              
+                "class": "form-control datepicker "
+            }
+        ))
+    
+    remark = forms.CharField(
+        widget=forms.Textarea(
+            attrs={    
+                "placeholder" : "Remark",            
+                "class": "form-control "
+            }
+        ))
+    model_number = forms.CharField(
+        widget=forms.TextInput(
+            attrs={    
+                "placeholder" : "Model Number",            
+                "class": "form-control "
+            }
+        ))  
+    STB_count = forms.CharField(
+        widget=forms.TextInput(
+            attrs={    
+                "label" : "STB_count",
+                "placeholder" : "STB Count",       
+                "class": "form-control"
+            }
+        ))
+    area = forms.CharField(
+        widget=forms.TextInput(
+            attrs={    
+                "label" : "Area",
+                "placeholder" : "Area",        
+                "class": "form-control "
+            }
+        ))
+    status = forms.ChoiceField(
+        choices=Status_choices,
+        widget=forms.Select(
+            attrs={    
+                "label" : "status",            
+                "class": "form-control "
+            }
+        ))
+    
+    class Meta:
+        model = Node
+        fields = '__all__'
+
+class routerForm(forms.ModelForm):
+    make = forms.CharField(
+        widget=forms.TextInput(
+            attrs={
+                "label" : "Make",
+                "placeholder" : "Make",                
+                "class": "form-control"
+            }
+        ))
+    issue_date = forms.DateField(
+        widget=forms.DateInput(
+            attrs={
+                "label" : "Issue Date",               
+                "class": "form-control datepicker"
+            }
+        ))
+    
+    
+    DOP = forms.DateField(
+        widget=forms.DateInput(
+            attrs={              
+                "class": "form-control datepicker "
+            }
+        ))
+    
+    remark = forms.CharField(
+        widget=forms.Textarea(
+            attrs={    
+                "placeholder" : "Remark",            
+                "class": "form-control "
+            }
+        ))
+    model_number = forms.CharField(
+        widget=forms.TextInput(
+            attrs={    
+                "placeholder" : "Model Number",            
+                "class": "form-control "
+            }
+        ))  
+    mac_id = forms.CharField(
+        widget=forms.TextInput(
+            attrs={    
+                "label" : "mac_id",
+                "placeholder" : "MAC ID",       
+                "class": "form-control"
+            }
+        ))
+    ip_address = forms.GenericIPAddressField(
+        widget=forms.TextInput(
+            attrs={    
+                "label" : "ip_address",
+                "placeholder" : "IP Address",        
+                "class": "form-control "
+            }
+        ))
+    status = forms.ChoiceField(
+        choices=Status_choices,
+        widget=forms.Select(
+            attrs={    
+                "label" : "status",            
+                "class": "form-control "
+            }
+        ))
+    type1 = forms.ChoiceField(
+        choices=type1_choices,
+        widget=forms.Select(
+            attrs={    
+                "label" : "type1",            
+                "class": "form-control "
+            }
+        ))
+    router_type = forms.ChoiceField(
+        choices=router_Choices,
+        widget=forms.Select(
+            attrs={    
+                "label" : "router_type",            
+                "class": "form-control "
+            }
+        ))
+    
+    class Meta:
+        model = Router
+        fields = '__all__'

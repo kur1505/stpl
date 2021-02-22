@@ -19,15 +19,15 @@
                     {% csrf_token %}
 
                     <div class="form-control">
-                        <h4>Add STB</h4>
+                        <h4>Add Router</h4>
                         <hr><br>
         
                         <div class=" row mb-3 mx-3">
                             <div class="col mx-6">
-                                <label for=""><b>Serial Number: </b></label>
+                                <label for=""><b>Make: </b></label>
                             </div>
                             <div class="col mx-6">
-                                {{form.serial_number}}
+                                {{form.make}}
                             </div>
                         </div>
         
@@ -37,6 +37,24 @@
                             </div>
                             <div class="col mx-6">
                                 {{form.model_number}}
+                            </div>
+                        </div>
+        
+                        <div class=" row mb-3 mx-3">
+                            <div class="col mx-6">
+                                <label for=""><b>Router type: </b></label>
+                            </div>
+                            <div class="col mx-6">
+                                {{form.router_type}}
+                            </div>
+                        </div>
+        
+                        <div class=" row mb-3 mx-3">
+                            <div class="col mx-6">
+                                <label for=""><b>Type: </b></label>
+                            </div>
+                            <div class="col mx-6">
+                                {{form.type1}}
                             </div>
                         </div>
         
@@ -60,19 +78,19 @@
         
                         <div class=" row mb-3 mx-3">
                             <div class="col mx-6">
-                                <label for=""><b>Type: </b></label>
+                                <label for=""><b>MAC ID: </b></label>
                             </div>
                             <div class="col mx-6">
-                                {{form.Type}}
+                                {{form.mac_id}}
                             </div>
                         </div>
-        
+
                         <div class=" row mb-3 mx-3">
                             <div class="col mx-6">
-                                <label for=""><b>Box type: </b></label>
+                                <label for=""><b>IP Address: </b></label>
                             </div>
                             <div class="col mx-6">
-                                {{form.box_type}}
+                                {{form.ip_address}}
                             </div>
                         </div>
         
