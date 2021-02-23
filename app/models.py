@@ -60,35 +60,38 @@ class Employee(models.Model):
         return f'{self.Name}'
 
 
-Type_choices = ( 
-                    ("1", "Prepaid"), 
-                    ("2", "Postpaid"), 
-                    ("3", "Complementary"),
-                )
+Type_choices = (                   
+    ("0","-----"),
+    ("1", "Prepaid"), 
+    ("2", "Postpaid"), 
+    ("3", "Complementary"),
+)
 
 Status_choices = (
+    ("0","-----"),
     ("1","Active"),
     ("2","Inactive"),
 )
 
 Box_choices = ( 
-                    ("1", "SD"), 
-                    ("2", "HD"), 
-                    ("3", "HD+"),
-                    ("4", "Other"),
-                )
+    ("0","-----"),
+    ("1", "SD"), 
+    ("2", "HD"), 
+    ("3", "HD+"),
+    ("4", "Other"),
+)
 
 class STB(models.Model):
     serial_number = models.CharField(_("Serial Number"), max_length=50, null=True)
     issue_date = models.DateField(_("Issue Date"), auto_now=False, auto_now_add=False)
     DOP = models.DateField(_("Date Of Purchase"), auto_now=False, auto_now_add=False)
     model_number = models.CharField(_("Model Number"), max_length=50, null=True)
-    Type = models.CharField(_("Type"), max_length=50, null=True, choices = Type_choices, default = '1')
-    box_type = models.CharField(_("Box Type"), max_length=50, choices = Box_choices, default = '1')
-    status = models.CharField(_("Status"), max_length=50, choices = Status_choices, default = '1')
+    Type = models.CharField(_("Type"), max_length=50, null=True, choices = Type_choices, default = '0')
+    box_type = models.CharField(_("Box Type"), max_length=50, choices = Box_choices, default = '0')
+    status = models.CharField(_("Status"), max_length=50, choices = Status_choices, default = '0')
     remark = models.TextField(_("Remark"), null=True, blank=True)
     is_assigned = models.BooleanField(_("Assigned"), default=False)
-    user_id = models.CharField(_("User ID"), max_length=50, null=True)
+    user_id = models.CharField(_("User ID"), max_length=50, null=True, blank=True)
 
     def __str__(self):
         return f'{self.serial_number}'
@@ -155,6 +158,7 @@ class CollectionAgent(models.Model):
 
 
 sr_status = (
+    ("0","-----"),
     ("1","Open"),
     ("2","Work in Progress"),
     ("3","Complete"),
@@ -175,7 +179,7 @@ class ServiceRequest(models.Model):
     stb = models.ForeignKey(STB, on_delete=models.PROTECT, null=True)
 
     # filled by Employee
-    status = models.CharField(_("Status"), max_length=50, choices = sr_status, default = '1')
+    status = models.CharField(_("Status"), max_length=50, choices = sr_status, default = '0')
     node_details = models.OneToOneField(Node, on_delete=models.PROTECT, null=True)
 
     # filled by Admin
@@ -185,12 +189,14 @@ class ServiceRequest(models.Model):
         return f'{self.request_id}' or ''
 
 type1_choices = (
+    ("0","-----"),
     ("1","Prepaid"),
     ("2","Postpaid"),
     ("3","Complementary"),
 )
 
 router_Choices = (
+    ("0","-----"),
     ("1","Data"),
     ("2","Wifi"),
     ("3","Dual Band"),
@@ -211,3 +217,23 @@ class Router(models.Model):
 
     def __str__(self):
         return f'{self.model_number}' or ''
+
+
+warehouse_choices = (
+    ("0","-----"),    
+    ("1","Beed"),
+    ("2","Akola"),
+)
+class Inventory(models.Model):
+    item_name = models.CharField(_("Make"), max_length=50, null=True)
+    qty = models.IntegerField(_("Quantity"), null=True)
+    amount = models.IntegerField(_("Amount ₹"), null=True)
+    bill_number = models.IntegerField(_("Bill Number"))
+    date_of_purchase = models.DateField(_("Date Of Purchase"), auto_now=False, auto_now_add=False)
+    vendor_name = models.CharField(_("Make"), max_length=50, null=True)
+    warehouse = models.CharField(_("Warehouse"), max_length=50, choices = warehouse_choices, default = '0')
+    receiver_name = models.CharField(_("Make"), max_length=50, null=True)
+
+    def __str__(self):
+        return f'{self.item_name}' or ''
+    

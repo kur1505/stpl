@@ -1,0 +1,77 @@
+{% extends "layouts/base.html" %}
+
+{% block title %} Ui BreadCrumb {% endblock %}
+
+<!-- Specific CSS goes HERE -->
+{% block stylesheets %}{% endblock stylesheets %}
+
+{% block content %}
+
+<div class="pcoded-content">
+    <div class="pcoded-inner-content">
+        <div class="main-body">
+            <div class="page-wrapper Recent-Users">
+                <!-- [ Main Content ] start -->
+                <div class="row">
+                    
+                    <!-- [ basic-table ] start -->
+                    <div class="col-xl-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <h5>Customers</h5>
+                                <a href="{% url 'addInventory' %}" role="button" style="float: right"><i class="fa fa-plus-circle" aria-hidden="true"></i>Add Inventory</a>
+                            </div>
+                            <div class="card-block table-border-style">
+                                <div class="table-responsive">
+                                    <table class="text-center table table-bordered" id="tbleCust">
+                                        <thead>
+                                            <tr>
+                                                <th scope="col">S. No.</th>
+                                                <th scope="col">ITEM Name</th>
+                                                <th scope="col">Qty</th>
+                                                <th scope="col">Amount</th>
+                                                <th scope="col">Bill Number</th>
+                                                <th scope="col">Date of Purchase</th>
+                                                <th scope="col">Vendor Name</th>
+                                                <th scope="col">Warehouse</th>
+                                                <th scope="col">Receiver Name</th>
+                                                {% comment %} <th scope="col">Remove</th> {% endcomment %}
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            {% for inv in inventory %}
+                                            <tr>
+                                                <td>{{forloop.counter}}</td>
+                                                <td>{{inv.item_name}}</td>
+                                                <td>{{inv.qty}}</td>
+                                                <td>{{inv.amount}}</td>
+                                                <td>{{inv.bill_number}}</td>
+                                                <td>{{inv.date_of_purchase}}</td>
+                                                <td>{{inv.vendor_name}}</td>
+                                                <td>{{inv.warehouse}}</td>
+                                                <td>{{inv.receiver_name}}</td>
+                                                <td>
+                                                    <a class="label theme-bg text-white f-12 mr-1" href="#"><i
+                                                            class="fas fa-edit text-white"></i></a>
+                                                    <a href="#" class="label bg-danger text-white f-12 mr-1"><i class="fa fa-trash text-white"
+                                                            aria-hidden="true"></i></a>
+                                                </td> 
+                                            </tr>
+                                            {% endfor %}
+                                        </tbody>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- [ basic-table ] end -->
+                    <!-- [ Main Content ] end -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {% endblock content %}
+
+    <!-- Specific Page JS goes HERE  -->
+    {% block javascripts %}{% endblock javascripts %}

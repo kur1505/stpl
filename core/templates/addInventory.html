@@ -11,7 +11,7 @@
 
 <div class="pcoded-content">
     <div class="pcoded-inner-content">
-        
+
         <div class="main-body">
             <div class="page-wrapper">
                 <!-- [ Main Content ] start -->
@@ -19,56 +19,54 @@
                     {% csrf_token %}
 
                     <div class="form-control">
-                        <h4>Add STB</h4>
+                        <h4>Add Inventory</h4>
                         <hr><br>
-
                         <div class="row">
 
                             <div class="col-md-6 my-2">
-                                <label for=""> Serial Number</label>
-                                {{form.serial_number}}
+                                <label for=""><b>ITEM Name</b></label>
+                                {{form.item_name}}
                             </div>
 
                             <div class="col-md-6 my-2">
-                                <label for=""> Model Number</label>
-                                {{form.model_number}}
+                                <label for=""><b>Quantity </b></label>
+                                {{form.qty}}
                             </div>
 
                             <div class="col-md-6 my-2">
-                                <label for=""> Date Of Purchase</label>
-                                {{form.DOP}}
+                                <label for=""><b>Amount </b></label>
+                                {{form.amount}}
                             </div>
 
                             <div class="col-md-6 my-2">
-                                <label for=""> Issue date </label>
-                                {{form.issue_date}}
+                                <label for=""><b>Bill Number </b></label>
+                                {{form.bill_number}}
                             </div>
 
                             <div class="col-md-6 my-2">
-                                <label for=""> Type</label>
-                                {{form.Type}}
+                                <label for=""><b>Date of Purchase </b></label>
+                                {{form.date_of_purchase}}
                             </div>
 
                             <div class="col-md-6 my-2">
-                                <label for=""> Box type</label>
-                                {{form.box_type}}
+                                <label for=""><b>Vendor Name </b></label>
+                                {{form.vendor_name}}
                             </div>
 
                             <div class="col-md-6 my-2">
-                                <label for=""> Status</label>
-                                {{form.status}}
+                                <label for=""><b>Warehouse </b></label>
+                                {{form.warehouse}}
                             </div>
 
                             <div class="col-md-6 my-2">
-                                <label for=""> Remark</label>
-                                {{form.remark}}
+                                <label for=""><b>Receiver Name </b></label>
+                                {{form.receiver_name}}
                             </div>
 
                         </div>
-                        
                     </div>
 
-                   
+
                     <button type="submit" class="btn btn-primary my-3">Create</button>
                 </form>
 
@@ -82,11 +80,11 @@
 
 <!-- Specific Page JS goes HERE  -->
 {% block javascripts %}
-    <script>
-        $(function () {
-            $('.datepicker').datepicker({
-                format: 'yyyy-mm-dd'
-            });
+<script>
+    $(function () {
+        $('.datepicker').datepicker({
+            format: 'yyyy-mm-dd'
         });
-    </script>
-{% endblock javascripts %}
+    });
+</script>
+{% endblock %}

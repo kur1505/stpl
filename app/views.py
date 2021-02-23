@@ -98,8 +98,12 @@ def testing(request):
 @login_required(login_url="/login/")
 def newCustomer(request):
     u =User.objects.filter(groups__name='Admin')
+    check_stb = None
     print(u)
     stb = STB.objects.all().filter(is_assigned=False)
+    s = stb[0]
+    form = stbForm(instance=s)
+    print(form)
     node = Node.objects.all()
     # print(stb)
     try:
@@ -129,10 +133,10 @@ def newCustomer(request):
             user.groups.add(group)
             check_stb = STB.objects.all().filter(serial_number=select1)
             check_node = Node.objects.all().filter(serial_number=select2)
-            check_stb.update(is_assigned=True)
-            print(check_stb[0])
+            print(check_stb)
             cust = Customer(user=user, STB_Number=check_stb[0], NODE_Number=check_node[0], Account_Number=Account_Number, Area_Name=Area_Name, Bank_Account=Bank_Account, IFSC_code=IFSC_code)
             cust.save()
+            check_stb.update(is_assigned=True)
             context = {'stb':stb, 'node':node, 'message' : 'Customer created successfully' , 'class' : 'success' }
             return render(request,'accounts/newCustomer.html' , context)
         else:
@@ -140,7 +144,7 @@ def newCustomer(request):
     except Exception as e:
         print(e)
     
-    context= {'stb':stb, 'node':node}
+    context= {'stb':stb, 'node':node, 'form':form}
 
     html_template = loader.get_template( 'accounts/newCustomer.html')
     return HttpResponse(html_template.render(context, request))
@@ -492,4 +496,32 @@ def addRouter(request):
     context={"form": form}
 
     html_template = loader.get_template( 'addRouter.html')
+    return HttpResponse(html_template.render(context, request))
+
+
+@login_required(login_url="/login/")
+def inventory(request):
+    inventory = Inventory.objects.all()
+    context = {'inventory':inventory}
+    html_template = loader.get_template( 'Inventory.html' )
+    return HttpResponse(html_template.render(context, request))
+
+@login_required(login_url="/login/")
+def addInventory(request):
+    form= InventoryForm()
+    try:
+        if request.method == 'POST':
+            form = InventoryForm(request.POST)
+            if form.is_valid():
+                form.save()
+                messages.success(request, 'Account is created')
+
+            else:
+                print('Form is not valid')
+    except Exception as e:
+        print(e)
+
+    context={"form": form}
+
+    html_template = loader.get_template( 'addInventory.html')
     return HttpResponse(html_template.render(context, request))

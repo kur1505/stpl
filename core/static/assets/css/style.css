@@ -10603,6 +10603,10 @@ input[type=text], [type=email],[type=number]{
   background-color: white;
 }
 
+select, textarea{
+  background-color: white !important;
+}
+
 .table-responsive{
   padding: 10px;
   border: solid 1px darkslategrey;

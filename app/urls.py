@@ -29,6 +29,8 @@ urlpatterns = [
     path('addRouter/', views.addRouter, name="addRouter"),
     path('plans/', views.plans, name="plans"),
     path('createPlans/', views.createPlans, name="createPlans"),
+    path('inventory/', views.inventory, name="inventory"),
+    path('addInventory/', views.addInventory, name="addInventory"),
 
     path('testing/', views.testing, name='testing'),
 

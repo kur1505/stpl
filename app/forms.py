@@ -596,3 +596,73 @@ class routerForm(forms.ModelForm):
     class Meta:
         model = Router
         fields = '__all__'
+
+
+class InventoryForm(forms.ModelForm):
+    item_name = forms.CharField(
+        widget=forms.TextInput(
+            attrs={    
+                "label" : "item_name",
+                "placeholder" : "Item Name",       
+                "class": "form-control"
+            }
+        ))
+    vendor_name = forms.CharField(
+        widget=forms.TextInput(
+            attrs={    
+                "label" : "vendor_name",
+                "placeholder" : "Vendor's Name",       
+                "class": "form-control"
+            }
+        ))
+    receiver_name = forms.CharField(
+        widget=forms.TextInput(
+            attrs={    
+                "label" : "receiver_name",
+                "placeholder" : "Receiver's Name",       
+                "class": "form-control"
+            }
+        ))
+    qty = forms.CharField(
+        widget=forms.NumberInput(
+            attrs={    
+                "label" : "qty",
+                "placeholder" : "Quantity",       
+                "class": "form-control"
+            }
+        ))
+    amount = forms.CharField(
+        widget=forms.NumberInput(
+            attrs={    
+                "label" : "amount",
+                "placeholder" : "Amount",       
+                "class": "form-control"
+            }
+        ))
+    bill_number = forms.CharField(
+        widget=forms.NumberInput(
+            attrs={    
+                "label" : "bill_number",
+                "placeholder" : "Bill Number",       
+                "class": "form-control"
+            }
+        ))
+    
+    date_of_purchase = forms.DateField(
+        widget=forms.DateInput(
+            attrs={              
+                "class": "form-control datepicker "
+            }
+        ))
+
+    warehouse = forms.ChoiceField(
+        choices=warehouse_choices,
+        widget=forms.Select(
+            attrs={    
+                "label" : "Warehouse",            
+                "class": "form-control "
+            }
+        ))
+    class Meta:
+        model = Inventory
+        fields = '__all__'

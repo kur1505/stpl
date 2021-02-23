@@ -11,7 +11,7 @@
 
 <div class="pcoded-content">
     <div class="pcoded-inner-content">
-        
+
         <div class="main-body">
             <div class="page-wrapper">
                 <!-- [ Main Content ] start -->
@@ -21,91 +21,57 @@
                     <div class="form-control">
                         <h4>Add Node</h4>
                         <hr><br>
-        
-                        <div class=" row mb-3 mx-3">
-                            <div class="col mx-6">
+                        <div class="row">
+
+                            <div class="col-md-6 my-2">
                                 <label for=""><b>Serial Number: </b></label>
-                            </div>
-                            <div class="col mx-6">
                                 {{form.serial_number}}
                             </div>
-                        </div>
-        
-                        <div class=" row mb-3 mx-3">
-                            <div class="col mx-6">
+
+                            <div class="col-md-6 my-2">
                                 <label for=""><b>Model Number: </b></label>
-                            </div>
-                            <div class="col mx-6">
                                 {{form.model_number}}
                             </div>
-                        </div>
-        
-                        <div class=" row mb-3 mx-3">
-                            <div class="col mx-6">
+
+                            <div class="col-md-6 my-2">
                                 <label for=""><b>Operator Name: </b></label>
+                                {{form.operator_name | addclass:'form-control'}}
                             </div>
-                            <div class="col mx-6">
-                                {{form.operator_name}}
-                            </div>
-                        </div>
-        
-                        <div class=" row mb-3 mx-3">
-                            <div class="col mx-6">
+
+                            <div class="col-md-6 my-2">
                                 <label for=""><b>Date Of Purchase: </b></label>
-                            </div>
-                            <div class="col mx-6">
                                 {{form.DOP}}
                             </div>
-                        </div>
 
-                        <div class=" row mb-3 mx-3">
-                            <div class="col mx-6">
+                            <div class="col-md-6 my-2">
                                 <label for=""><b>Issue date: </b></label>
-                            </div>
-                            <div class="col mx-6">
                                 {{form.issue_date}}
                             </div>
-                        </div>
-        
-                        <div class=" row mb-3 mx-3">
-                            <div class="col mx-6">
+
+                            <div class="col-md-6 my-2">
                                 <label for=""><b>STB Count: </b></label>
-                            </div>
-                            <div class="col mx-6">
                                 {{form.STB_count}}
                             </div>
-                        </div>
-                        
-                        <div class=" row mb-3 mx-3">
-                            <div class="col mx-6">
+
+                            <div class="col-md-6 my-2">
                                 <label for=""><b>Area: </b></label>
-                            </div>
-                            <div class="col mx-6">
                                 {{form.area}}
                             </div>
-                        </div>
-        
-                        <div class=" row mb-3 mx-3">
-                            <div class="col mx-6">
+
+                            <div class="col-md-6 my-2">
                                 <label for=""><b>Status: </b></label>
-                            </div>
-                            <div class="col mx-6">
                                 {{form.status}}
                             </div>
-                        </div>
-        
-                        <div class=" row mb-3 mx-3">
-                            <div class="col mx-6">
+
+                            <div class="col-md-6 my-2">
                                 <label for=""><b>Remark: </b></label>
-                            </div>
-                            <div class="col mx-6">
                                 {{form.remark}}
                             </div>
+
                         </div>
-                        
                     </div>
 
-                   
+
                     <button type="submit" class="btn btn-primary my-3">Create</button>
                 </form>
 
@@ -119,11 +85,11 @@
 
 <!-- Specific Page JS goes HERE  -->
 {% block javascripts %}
-    <script>
-        $(function () {
-            $('.datepicker').datepicker({
-                format: 'yyyy-mm-dd'
-            });
+<script>
+    $(function () {
+        $('.datepicker').datepicker({
+            format: 'yyyy-mm-dd'
         });
-    </script>
-{% endblock javascripts %}
+    });
+</script>
+{% endblock %}

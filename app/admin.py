@@ -16,4 +16,5 @@ admin.site.register(CollectionAgent)
 admin.site.register(ServiceRequest)
 admin.site.register(Router)
 admin.site.register(Plans)
+admin.site.register(Inventory)
 
