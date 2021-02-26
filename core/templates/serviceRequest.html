@@ -35,22 +35,29 @@
                                                 <th scope="col">Operator</th>
                                                 <th scope="col">Message</th>
                                                 <!-- <th scope="col">Allotment by Default (Area Wise)</th> -->
-                                                <th scope="col">Status</th>   
+                                                <th scope="col">Status</th>  
+                                                <th scope="col">Update</th>  
                                             </tr>
                                         </thead>
                                         <tbody>
                                             {% for SR in sr %}
                                                 <tr>
-                                                    <th scope="col">{{ forloop.counter }}</th>
-                                                    <th scope="col">{{SR.name}}</th>
-                                                    <th scope="col">{{SR.stb}}</th>
-                                                    <th scope="col">{{SR.mobile}}</th>
-                                                    <th scope="col">{{SR.email}}</th>
-                                                    <th scope="col">{{SR.city}}</th>
-                                                    <th scope="col"></th>
-                                                    <th scope="col">{{SR.message_box}}</th>
-                                                    <!-- <th scope="col"></th> -->
-                                                    <th scope="col">{{SR.status}}</th>
+                                                    <td scope="col">{{ forloop.counter }}</td>
+                                                    <td scope="col">{{SR.name}}</td>
+                                                    <td scope="col">{{SR.stb}}</td>
+                                                    <td scope="col">{{SR.mobile}}</td>
+                                                    <td scope="col">{{SR.email}}</td>
+                                                    <td scope="col">{{SR.city}}</td>
+                                                    <td scope="col"></th>
+                                                    <td scope="col">{{SR.message_box}}</td>
+                                                    <!-- <td scope="col"></td> -->
+                                                    <td scope="col">{{SR.status}}</td>
+                                                    <td>
+                                                        <a class="label theme-bg text-white f-12 mr-1" href="#"><i
+                                                                class="fas fa-edit text-white"></i></a>
+                                                        <a href="#" class="label bg-danger text-white f-12 mr-1"><i class="fa fa-trash text-white"
+                                                                aria-hidden="true"></i></a>
+                                                    </td>
                                                 </tr>
                                             {% endfor %}
                                         </tbody>

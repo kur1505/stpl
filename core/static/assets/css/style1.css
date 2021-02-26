@@ -641,7 +641,7 @@ section {
 }
 
 .icon-boxes .title a {
-  color: #05579e;
+  color: #f6b024;
 }
 
 .icon-boxes .description {
@@ -1015,7 +1015,7 @@ section {
 }
 
 .services .icon-box h4 a {
-  color: #05579e;
+  color: #f6b024;
   transition: 0.3s;
 }
 
@@ -1210,7 +1210,7 @@ section {
   font-weight: 700;
   margin-bottom: 5px;
   font-size: 20px;
-  color: #05579e;
+  color: #f6b024;
 }
 
 .team .member span {
@@ -1289,7 +1289,7 @@ section {
   padding: 20px 15px;
   font-size: 18px;
   font-weight: 700;
-  color: #05579e;
+  color: #f6b024;
   background: #f8f8f8;
 }
 
@@ -2290,7 +2290,7 @@ section {
 # Footer
 --------------------------------------------------------------*/
 #footer {
-  background: #05579e;
+  background: #f6b024;
   padding: 0 0 30px 0;
   color: #fff;
   font-size: 14px;
@@ -2298,7 +2298,7 @@ section {
 
 #footer .footer-newsletter {
   padding: 50px 0;
-  background: #05579e;
+  background: #f6b024;
 }
 
 #footer .footer-newsletter h4 {

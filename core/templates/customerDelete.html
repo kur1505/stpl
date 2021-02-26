@@ -1,0 +1,40 @@
+{% extends "layouts/base.html" %}
+
+{% block title %} Delete Customer {% endblock %}
+
+<!-- Specific CSS goes HERE -->
+{% block stylesheets %}{% endblock stylesheets %}
+
+{% block content %}
+
+<div class="pcoded-content">
+    <div class="pcoded-inner-content">
+        <div class="main-body">
+            <div class="page-wrapper Recent-Users">
+                <!-- [ Main Content ] start -->
+                <div class="row">
+    <div class="col-md-6">
+        <div class="card card-body">
+
+
+            <p> <b>Are you sure you want to delete "{{user}}" ?</b></p>
+
+            <form action="{% url 'deleteCustomer' user.id %}" method="POST">
+                {% csrf_token %}
+
+                <a class= "btn btn-sm btn-warning" href="{% url 'customers' %}">Cancel</a>
+
+                <input class= "btn btn-sm btn-danger" type="submit" name="Confirm">
+
+            </form>
+        </div>
+    </div>
+</div>
+            </div>
+        </div>
+    </div>
+
+    {% endblock content %}
+
+    <!-- Specific Page JS goes HERE  -->
+    {% block javascripts %}{% endblock javascripts %}

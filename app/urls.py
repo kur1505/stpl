@@ -31,12 +31,14 @@ urlpatterns = [
     path('createPlans/', views.createPlans, name="createPlans"),
     path('inventory/', views.inventory, name="inventory"),
     path('addInventory/', views.addInventory, name="addInventory"),
+    path('getSTBbyID/<str:pk>/', views.getSTBbyID, name="getSTBbyID"),
 
     path('testing/', views.testing, name='testing'),
 
     # registeration urls
     path('newCustomer/', views.newCustomer, name='newCustomer'),                   #Creates new cutomer
     path('updateCustomer/<str:id>/', views.updateCustomer, name='updateCustomer'), #Updates cutomer
+    path('deleteCustomer/<str:pk>/', views.deleteCustomer, name='deleteCustomer'), #Deletes cutomer
     path('newOperator/', views.newOperator, name='newOperator'),                   #Creates new operator
     path('updateOperator/<str:pk>/', views.updateOperator, name='updateOperator'), #Updates operator
     path('addEmployees/', views.addEmployees, name='addEmployees'), #Creates Employees

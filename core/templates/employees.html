@@ -33,6 +33,7 @@
                                                 <th scope="col">Email</th>
                                                 <th scope="col">Department</th>
                                                 <th scope="col">DOJ</th>
+                                                <th scope="col">Update</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -45,6 +46,12 @@
                                                 <td>{{user.email}}</td>
                                                 <td>{{user.department}}</td>
                                                 <td>{{user.DOJ}}</td>
+                                                <td>
+                                                    <a class="label theme-bg text-white f-12 mr-1" href="#"><i
+                                                            class="fas fa-edit text-white"></i></a>
+                                                    <a href="#" class="label bg-danger text-white f-12 mr-1"><i class="fa fa-trash text-white"
+                                                            aria-hidden="true"></i></a>
+                                                </td>
                                         
                                             {% endfor %}
                                         </tbody>

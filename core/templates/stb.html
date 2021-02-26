@@ -26,22 +26,41 @@
                                     <table class="text-center table table-bordered" id="tbleCust">
                                         <thead>
                                             <tr>
-                                                <th scope="col">SR.No</th>
-                                                <th scope="col">Name</th>
-                                                <th scope="col">Node Number</th>
-                                                <th scope="col">STB Number</th>
-                                                <th scope="col">Email</th>
-                                                <th scope="col">Area</th>
-                                                <th scope="col">Active STB Qty</th>
-                                                <th scope="col">Inactive STB Qty</th>
-                                                <th scope="col">DOI</th>
-                                                <th scope="col">Expiry</th>
-                                                <th scope="col">Repair</th>
-                                                <th scope="col">Operator</th>
+                                                <th scope="col">No.</th>
+                                                <th scope="col">Serial Number</th>
+                                                <th scope="col">Issue Date</th>
+                                                <th scope="col">DOP</th>
+                                                <th scope="col">Model Number</th>
+                                                <th scope="col">Type</th>
+                                                <th scope="col">Box Type</th>
+                                                <th scope="col">Status</th>
+                                                <th scope="col">Remark</th>
+                                                <th scope="col">Is Assigned</th>
+                                                <th scope="col">Update</th>
                                                 
                                             </tr>
                                         </thead>
                                         <tbody>
+                                            {% for st in stb %}
+                                                <tr>
+                                                    <td scope="col">{{forloop.counter}}</td>
+                                                    <td scope="col">{{st.serial_number}}</td>
+                                                    <td scope="col">{{st.DOP}}</td>
+                                                    <td scope="col">{{st.issue_date}}</td>
+                                                    <td scope="col">{{st.model_number}}</td>
+                                                    <td scope="col">{{st.Type}}</td>
+                                                    <td scope="col">{{st.box_type}}</td>
+                                                    <td scope="col">{{st.status}}</td>
+                                                    <td scope="col">{{st.remark}}</td>
+                                                    <td scope="col">{{st.is_assigned}}</td>
+                                                    <td>
+                                                        <a class="label theme-bg text-white f-12 mr-1" href="#"><i
+                                                                class="fas fa-edit text-white"></i></a>
+                                                        <a href="#" class="label bg-danger text-white f-12 mr-1"><i class="fa fa-trash text-white"
+                                                                aria-hidden="true"></i></a>
+                                                    </td>
+                                                </tr>
+                                            {% endfor %}
                                             
                                         </tbody>
 

@@ -44,7 +44,7 @@
                                                 <td>
                                                     <a class="label theme-bg text-white f-12 mr-1" href="{% url 'updateCustomer' user.id %}"><i
                                                             class="fas fa-edit text-white"></i></a>
-                                                    <a href="#" class="label bg-danger text-white f-12 mr-1"><i class="fa fa-trash text-white"
+                                                    <a href="{% url 'deleteCustomer' user.id %}" class="label bg-danger text-white f-12 mr-1"><i class="fa fa-trash text-white"
                                                             aria-hidden="true"></i></a>
                                                 </td> 
                                             </tr>

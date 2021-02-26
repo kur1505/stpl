@@ -12,6 +12,7 @@ from authentication.forms import SignUpForm
 from django.forms import inlineformset_factory
 import json
 from .decorators import allowed_users
+from django.http import JsonResponse
 
 def home(request):
     
@@ -149,7 +150,32 @@ def newCustomer(request):
     html_template = loader.get_template( 'accounts/newCustomer.html')
     return HttpResponse(html_template.render(context, request))
 
-    
+def deleteCustomer(request, pk):
+    user = User.objects.get(id=pk)
+    try:
+        if request.method == "POST":
+            user.delete()
+            return redirect('customers')
+        else:
+            print('Error')
+    except Exception as e:
+        print(e)
+
+    context= {'user': user}
+
+    html_template = loader.get_template( 'customerDelete.html')
+    return HttpResponse(html_template.render(context, request)) 
+
+def getSTBbyID(request, pk):
+    print(pk)
+    stb = STB.objects.all().filter(id=pk)
+    s = stb[0]
+    print(s)
+    # print(list(stb))
+
+    context = {'stb':stb}
+    return JsonResponse(context)
+
 def save_profile(request):
     stb = STB.objects.all()
     # print(stb)
@@ -175,9 +201,6 @@ def save_profile(request):
     html_template = loader.get_template( 'accounts/profile.html')
     return HttpResponse(html_template.render(context, request))
 
-
-def get_stb_by_id(request, pk):
-    stb = STB.objects.get(pk=pk)
     
 
 

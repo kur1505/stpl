@@ -238,3 +238,44 @@
   });
 
 })(jQuery);
+
+// Ajax Call main method
+function callAjaxFormGet(url, dataToSend, _success, _error, showLoading,header) {
+ 
+  if (showLoading == undefined || showLoading == true){
+      showMask();
+  }
+  
+  var _errorhandler = function (response) {
+       hideMask();
+      if (response.statusText == "Unauthorized" || response.status==401) {
+          swal.fire({
+              title: 'Session alert!',
+              text: 'Your session has timed out. Please login and retry.',
+              timer: 3000,
+              type: 'warning'
+          }).then(
+              function () { console.log('I was closed'); window.location.href = "/"; },
+              // handling the promise rejection
+              function (dismiss) {
+                  if (dismiss === 'timer') {
+                      console.log('I was closed by the timer'); window.location.href = "/";
+                     }
+                  });
+      }
+      else {
+          _error(response);
+      }
+  };
+  $.ajax({
+      type: "POST",
+      url: url,
+      data: dataToSend,
+      headers:header,
+      processData: false,
+      contentType: false,
+      success: _success,
+      error: _errorhandler
+
+  });
+}

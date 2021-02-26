@@ -27,25 +27,42 @@
                                         <thead>
                                             <tr>
                                                 <th scope="col">SR.No</th>
-                                                <th scope="col">Name</th>
-                                                <th scope="col">Node Number</th>
-                                                <th scope="col">STB Number</th>
-                                                <th scope="col">Email</th>
-                                                <th scope="col">Area</th>
-                                                <th scope="col">Active STB Qty</th>
-                                                <th scope="col">Inactive STB Qty</th>
-                                                <th scope="col">DOI</th>
-                                                <th scope="col">Expiry</th>
-                                                <th scope="col">Repair</th>
-                                                <th scope="col">Operator</th>
+                                                <th scope="col">Make</th>
+                                                <th scope="col">Model Number</th>
+                                                <th scope="col">DOP</th>
+                                                <th scope="col">Issue Date</th>
+                                                <th scope="col">Type</th>
+                                                <th scope="col">Status</th>
+                                                <th scope="col">Router Type</th>
+                                                <th scope="col">Remark</th>
+                                                <th scope="col">Mac ID</th>
+                                                <th scope="col">IP Address</th>
+                                                <th scope="col">Update</th>
                                                 
                                             </tr>
                                         </thead>
                                         <tbody>
-                                    
-                                            <tr>
-                                                <!-- <th scope="col">{{forloop.counter}}</th> -->
-                                            </tr>
+                                            {% for rt in router %}
+                                                <tr>
+                                                    <td scope="col">{{forloop.counter}}</td>
+                                                    <td scope="col">{{rt.make}}</td>
+                                                    <td scope="col">{{rt.model_number}}</td>
+                                                    <td scope="col">{{rt.DOP}}</td>
+                                                    <td scope="col">{{rt.issue_date}}</td>
+                                                    <td scope="col">{{rt.value(type1)}}</td>
+                                                    <td scope="col">{{rt.status}}</td>
+                                                    <td scope="col">{{rt.router_type}}</td>
+                                                    <td scope="col">{{rt.remark}}</td>
+                                                    <td scope="col">{{rt.mac_id}}</td>
+                                                    <td scope="col">{{rt.ip_address}}</td>
+                                                    <td>
+                                                        <a class="label theme-bg text-white f-12 mr-1" href="#"><i
+                                                                class="fas fa-edit text-white"></i></a>
+                                                        <a href="#" class="label bg-danger text-white f-12 mr-1"><i class="fa fa-trash text-white"
+                                                                aria-hidden="true"></i></a>
+                                                    </td>
+                                                </tr>
+                                            {% endfor %}
                                         </tbody>
 
                                 </div>
